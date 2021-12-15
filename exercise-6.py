@@ -21,32 +21,34 @@
 # the day number falls within a certain range.
 
 
-month = input (f"Please enter the month of the year (Jan- Dec) as three characters")
+month = (input(f"Please enter the month of the year (Jan- Dec) as first letter Uppercase and the rest lowercase. ")).lower()
+new_month = month[0].upper() + month[1:]
 day = int(input(f"Please enter the day of the month in 2 digits"))
 season = " "
-if month in ("Jan", "Feb", "Mar"):
+if new_month in ("Jan", "Feb", "Mar"):
   season = "Winter!"
-  print(f"{month} {day} is in the {season}")
-elif month in ("Apr", "May", "Jun"):
+  
+elif new_month in ("Mar", "Apr", "May", "Jun"):
   season = "Spring!"
-  print(f"{month} {day} is in the {season}")
-elif month in ("Jul", "Aug", "Sep"):
+  
+elif new_month in ("Jun", "Jul", "Aug", "Sep"):
   season = "Summer!"
-  print(f"{month} {day} is in the {season}")
-if month == "March" and day > 19:
-  season = "Spring!"
-  print(f"{month} {day} is in the {season}")
-elif month == "Jun" and day > 20: 
-  season = "Summer!"
-  print(f"{month} {day} is in the {season}")
-elif month == "Sep" and day > 21:
+  
+elif new_month in ("Sep", "Oct", "Nov", "Dec"):
   season = "Fall!"
-  print(f"{month} {day} is in the {season}")
-elif month == "Dec" and day > 20:
+  
+if new_month == "Mar" and day > 19:
+  season = "Spring!"
+  
+elif new_month == "Jun" and day > 20: 
+  season = "Summer!"
+  
+elif new_month == "Sep" and day > 21:
+  season = "Fall!"
+  
+elif new_month == "Dec" and day > 20:
   season = "Winter!"
-  print(f"{month} {day} is in the {season}")
-else:
-  season = "Fall!"
-  print(f"{month} {day} is in the {season}")
+
+print(f"{new_month} {day} is in the {season}")
 
 # Everything returns as in the fall! Need to troubleshoot more. 
